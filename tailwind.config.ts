@@ -72,12 +72,14 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			backgroundImage: {
-				'gradient-water': 'var(--gradient-water)',
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-secondary': 'var(--gradient-secondary)',
 				'gradient-nature': 'var(--gradient-nature)',
-				'gradient-sky': 'var(--gradient-sky)'
+				'gradient-sunset': 'var(--gradient-sunset)'
 			},
 			boxShadow: {
 				'primary': 'var(--shadow-primary)',
+				'secondary': 'var(--shadow-secondary)',
 				'card': 'var(--shadow-card)'
 			},
 			keyframes: {

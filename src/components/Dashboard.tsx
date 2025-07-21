@@ -30,7 +30,7 @@ const Dashboard = () => {
       value: "89%",
       description: "Projects completed successfully",
       icon: CheckCircle,
-      color: "bg-primary"
+      color: "bg-gradient-secondary"
     }
   ];
 
@@ -58,7 +58,7 @@ const Dashboard = () => {
   return (
     <div className="space-y-8">
       {/* Hero Section */}
-      <div className="bg-gradient-sky rounded-lg p-8 text-primary-foreground">
+      <div className="bg-gradient-primary rounded-lg p-8 text-primary-foreground shadow-primary">
         <div className="flex items-center space-x-4 mb-4">
           <CheckCircle className="h-6 w-6 text-accent" />
           <Badge variant="secondary" className="bg-primary-foreground/20 text-primary-foreground">

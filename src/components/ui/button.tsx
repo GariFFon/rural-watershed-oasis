@@ -15,11 +15,13 @@ const buttonVariants = cva(
         outline:
           "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-md",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-secondary/20 shadow-md",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        water: "bg-gradient-water text-primary-foreground hover:opacity-90 shadow-primary",
-        nature: "bg-gradient-nature text-secondary-foreground hover:opacity-90 shadow-md",
+        emerald: "bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-primary",
+        purple: "bg-gradient-secondary text-secondary-foreground hover:opacity-90 shadow-secondary",
+        nature: "bg-gradient-nature text-primary-foreground hover:opacity-90 shadow-primary",
+        sunset: "bg-gradient-sunset text-accent-foreground hover:opacity-90 shadow-md",
       },
       size: {
         default: "h-10 px-4 py-2",
