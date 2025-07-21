@@ -1,4 +1,54 @@
-# Welcome to your Lovable project
+# Rural Watershed Oasis Management System
+
+A comprehensive rural watershed management system built with modern web technologies.
+
+## 🔐 Authentication Features
+
+This application now includes a complete authentication system with:
+
+- **Login Page**: Secure user authentication
+- **Signup Page**: New user registration
+- **Protected Routes**: Secured dashboard and features
+- **User Management**: Profile display and logout functionality
+
+### Demo Credentials
+
+For testing purposes, use these demo credentials:
+- **Email**: `gourav@demo.com`
+- **Password**: `demo123`
+- **Demo User**: Gourav (Administrator role)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+### Installation
+
+```sh
+# Step 1: Clone the repository
+git clone <YOUR_GIT_URL>
+
+# Step 2: Navigate to the project directory
+cd rural-watershed-oasis
+
+# Step 3: Install dependencies
+npm i
+
+# Step 4: Start the development server
+npm run dev
+```
+
+The application will be available at `http://localhost:8080`
+
+## 📱 Application Flow
+
+1. **Access Control**: All main routes are protected and require authentication
+2. **Login**: Users must authenticate to access the dashboard
+3. **Dashboard**: Personalized welcome message with user information
+4. **Navigation**: Full access to all watershed management features after login
+5. **Logout**: Secure logout redirects to login page
 
 ## Project info
 

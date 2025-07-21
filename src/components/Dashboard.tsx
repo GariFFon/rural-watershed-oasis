@@ -1,8 +1,10 @@
 import { CheckCircle, Activity, Users, MapPin, Calendar } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Dashboard = () => {
+  const { user } = useAuth();
   const stats = [
     {
       title: "Active Projects",
@@ -57,6 +59,19 @@ const Dashboard = () => {
 
   return (
     <div className="space-y-8">
+      {/* Welcome Message */}
+      {user && (
+        <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6 border border-green-200">
+          <h2 className="text-2xl font-bold text-green-800 mb-2">
+            Welcome back, {user.name}! 👋
+          </h2>
+          <p className="text-green-700">
+            Role: <span className="font-semibold">{user.role}</span> | 
+            Ready to manage rural watershed projects and make a positive impact.
+          </p>
+        </div>
+      )}
+
       {/* Hero Section */}
       <div className="bg-gradient-primary rounded-lg p-8 text-primary-foreground shadow-primary">
         <div className="flex items-center space-x-4 mb-4">
