@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { 
   Home, 
   DollarSign, 
@@ -16,8 +16,7 @@ import {
   Menu,
   X,
   ChevronDown,
-  LogIn,
-  UserPlus,
+  LogOut,
   User
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,6 +28,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useAuth } from "@/contexts/AuthContext";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const navigationGroups = {
   main: [
@@ -55,20 +56,20 @@ const navigationGroups = {
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Simulate user authentication state
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
-
-  const handleLogin = () => {
-    // This would integrate with Supabase authentication
-    setIsAuthenticated(true);
-    setUser({ name: "John Doe", email: "john@watershed.gov" });
-  };
+  const { user, logout, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    setIsAuthenticated(false);
-    setUser(null);
+    logout();
+    navigate("/login");
+  };
+
+  const getUserInitials = (name: string) => {
+    return name
+      .split(" ")
+      .map((n) => n[0])
+      .join("")
+      .toUpperCase();
   };
 
   return (
@@ -167,51 +168,37 @@ const Navigation = () => {
 
           {/* User Authentication Section */}
           <div className="flex items-center space-x-3">
-            {isAuthenticated ? (
+            {isAuthenticated && user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button className="flex items-center space-x-2 px-3 py-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-lg transition-colors">
-                    <User className="h-4 w-4 text-primary-foreground" />
-                    <span className="text-sm font-medium text-primary-foreground">
-                      {user?.name}
-                    </span>
-                    <ChevronDown className="h-3 w-3 text-primary-foreground" />
-                  </button>
+                  <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+                    <Avatar className="h-10 w-10">
+                      <AvatarFallback className="bg-primary-foreground text-primary">
+                        {getUserInitials(user.name)}
+                      </AvatarFallback>
+                    </Avatar>
+                  </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56 bg-card shadow-card border-0">
-                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuLabel className="font-normal">
+                    <div className="flex flex-col space-y-1">
+                      <p className="text-sm font-medium leading-none">{user.name}</p>
+                      <p className="text-xs leading-none text-muted-foreground">
+                        {user.email}
+                      </p>
+                      <p className="text-xs leading-none text-muted-foreground">
+                        {user.role}
+                      </p>
+                    </div>
+                  </DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>Profile Settings</DropdownMenuItem>
-                  <DropdownMenuItem>Preferences</DropdownMenuItem>
-                  <DropdownMenuItem>Help & Support</DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={handleLogout} className="text-destructive">
-                    Logout
+                  <DropdownMenuItem onClick={handleLogout}>
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Log out</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-            ) : (
-              <div className="flex items-center space-x-2">
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={handleLogin}
-                  className="text-primary-foreground hover:bg-primary-foreground/10"
-                >
-                  <LogIn className="h-4 w-4 mr-2" />
-                  Login
-                </Button>
-                <Button 
-                  variant="secondary" 
-                  size="sm"
-                  onClick={handleLogin}
-                  className="shadow-secondary/30"
-                >
-                  <UserPlus className="h-4 w-4 mr-2" />
-                  Sign Up
-                </Button>
-              </div>
-            )}
+            ) : null}
           </div>
         </div>
 
@@ -219,24 +206,37 @@ const Navigation = () => {
         <div className="lg:hidden flex items-center justify-between py-3">
           <span className="text-primary-foreground font-medium">Watershed System</span>
           <div className="flex items-center space-x-2">
-            {isAuthenticated ? (
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-primary-foreground hover:bg-primary-foreground/10"
-              >
-                <User className="h-4 w-4" />
-              </Button>
-            ) : (
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleLogin}
-                className="text-primary-foreground hover:bg-primary-foreground/10"
-              >
-                <LogIn className="h-4 w-4" />
-              </Button>
-            )}
+            {isAuthenticated && user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10">
+                    <Avatar className="h-6 w-6">
+                      <AvatarFallback className="bg-primary-foreground text-primary text-xs">
+                        {getUserInitials(user.name)}
+                      </AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56 bg-card shadow-card border-0">
+                  <DropdownMenuLabel className="font-normal">
+                    <div className="flex flex-col space-y-1">
+                      <p className="text-sm font-medium leading-none">{user.name}</p>
+                      <p className="text-xs leading-none text-muted-foreground">
+                        {user.email}
+                      </p>
+                      <p className="text-xs leading-none text-muted-foreground">
+                        {user.role}
+                      </p>
+                    </div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={handleLogout}>
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Log out</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : null}
             <Button
               variant="ghost"
               size="sm"

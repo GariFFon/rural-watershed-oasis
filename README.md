@@ -52,21 +52,15 @@ The application will be available at `http://localhost:8080`
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/14125b66-d7a4-478c-b384-d50e95bd1537
+This is a rural watershed management system project for community development.
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
+**Local Development**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/14125b66-d7a4-478c-b384-d50e95bd1537) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Clone this repository and work with your preferred IDE:
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -112,12 +106,15 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/14125b66-d7a4-478c-b384-d50e95bd1537) and click on Share -> Publish.
+You can deploy this project using various hosting platforms such as:
+- Vercel
+- Netlify  
+- GitHub Pages
+- Heroku
+- DigitalOcean
 
-## Can I connect a custom domain to my Lovable project?
+Build the project first using `npm run build` and then deploy the `dist` folder.
 
-Yes, you can!
+## Can I connect a custom domain?
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Yes, most hosting platforms allow you to connect custom domains. Check your hosting provider's documentation for specific instructions on domain setup.
