@@ -8,6 +8,7 @@ import Dashboard from "./components/Dashboard";
 import Financials from "./pages/Financials";
 import DataManagement from "./pages/DataManagement";
 import Maps from "./pages/Maps";
+import Timeline from "./pages/Timeline";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,7 +29,7 @@ const App = () => (
             <Route path="climatology" element={<Dashboard />} />
             <Route path="scr" element={<Dashboard />} />
             <Route path="interventions" element={<Dashboard />} />
-            <Route path="timeline" element={<Dashboard />} />
+            <Route path="timeline" element={<Timeline />} />
             <Route path="media" element={<Dashboard />} />
             <Route path="miscellaneous" element={<Dashboard />} />
             <Route path="results" element={<Dashboard />} />

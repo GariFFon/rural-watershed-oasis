@@ -2,54 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Modern Green & Purple Watershed Management Design System */
+/* Baby Blue & White Watershed Management Design System */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 240 10% 9%;
+    --foreground: 210 20% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 9%;
+    --card-foreground: 210 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 9%;
+    --popover-foreground: 210 20% 15%;
 
-    /* Modern emerald-teal primary colors */
-    --primary: 158 64% 52%;
-    --primary-foreground: 0 0% 100%;
-    --primary-light: 158 54% 62%;
-    --primary-dark: 158 74% 42%;
+    /* Soft baby blue primary colors */
+    --primary: 200 100% 85%;
+    --primary-foreground: 210 20% 15%;
+    --primary-light: 200 100% 90%;
+    --primary-dark: 200 100% 75%;
 
-    /* Rich purple secondary colors */
-    --secondary: 262 83% 58%;
-    --secondary-foreground: 0 0% 100%;
-    --secondary-light: 262 73% 68%;
+    /* Complementary soft blue secondary */
+    --secondary: 210 100% 92%;
+    --secondary-foreground: 210 20% 15%;
+    --secondary-light: 210 100% 96%;
 
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    /* Warm orange accent */
-    --accent: 25 95% 53%;
-    --accent-foreground: 0 0% 100%;
+    /* Soft coral accent for contrast */
+    --accent: 15 100% 88%;
+    --accent-foreground: 210 20% 15%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 158 64% 52%;
+    --ring: 200 100% 85%;
 
-    /* Beautiful gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(158 64% 52%), hsl(158 54% 62%));
-    --gradient-secondary: linear-gradient(135deg, hsl(262 83% 58%), hsl(262 73% 68%));
-    --gradient-nature: linear-gradient(135deg, hsl(158 64% 52%), hsl(142 76% 36%));
-    --gradient-sunset: linear-gradient(135deg, hsl(25 95% 53%), hsl(45 93% 58%));
+    /* Soft gradients with baby blue and white */
+    --gradient-primary: linear-gradient(135deg, hsl(200 100% 85%), hsl(200 100% 90%));
+    --gradient-secondary: linear-gradient(135deg, hsl(210 100% 92%), hsl(210 100% 96%));
+    --gradient-nature: linear-gradient(135deg, hsl(200 100% 85%), hsl(180 100% 85%));
+    --gradient-sunset: linear-gradient(135deg, hsl(15 100% 88%), hsl(25 100% 90%));
     
-    /* Enhanced shadows */
-    --shadow-primary: 0 4px 20px hsl(158 64% 52% / 0.25);
-    --shadow-secondary: 0 4px 20px hsl(262 83% 58% / 0.25);
-    --shadow-card: 0 2px 10px hsl(240 10% 9% / 0.1);
+    /* Soft shadows */
+    --shadow-primary: 0 4px 20px hsl(200 100% 85% / 0.3);
+    --shadow-secondary: 0 4px 20px hsl(210 100% 92% / 0.3);
+    --shadow-card: 0 2px 10px hsl(210 20% 15% / 0.08);
 
     --radius: 0.5rem;
 

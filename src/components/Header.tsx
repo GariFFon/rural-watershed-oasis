@@ -2,7 +2,7 @@ import { Droplets } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="bg-gradient-secondary text-secondary-foreground shadow-secondary">
+    <header className="bg-gradient-primary text-primary-foreground shadow-primary">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center space-x-3">
           <Droplets className="h-8 w-8" />
